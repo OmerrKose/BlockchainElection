@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "start": "node index.html",
     "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

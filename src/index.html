@@ -1,66 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Election Results</title>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+            
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              box-sizing: border-box;
+            }
+            
+            /* Set a style for all buttons */
+            button {
+              background-color: #04AA6D;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              cursor: pointer;
+              width: 100%;
+            }
+            
+            button:hover {
+              opacity: 0.8;
+            }
+            
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+              width: auto;
+              padding: 10px 18px;
+              background-color: #f44336;
+            }
+            
+            /* Center the image and position the close button */
+            .imgcontainer {
+              text-align: center;
+              margin: 24px 0 12px 0;
+              position: relative;
+            }
+            
+            img.avatar {
+              width: 40%;
+              border-radius: 5%;
+            }
+            
+            .container {
+              padding: 16px;
+            }
+            
+            span.psw {
+              float: right;
+              padding-top: 16px;
+            }
+            
+            /* The Modal (background) */
+            .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+              padding-top: 60px;
+            }
+            
+            /* Modal Content/Box */
+            .modal-content {
+              background-color: #fefefe;
+              margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+              border: 1px solid #888;
+              width: 80%; /* Could be more or less, depending on screen size */
+            }
+            
+            /* The Close Button (x) */
+            .close {
+              position: absolute;
+              right: 25px;
+              top: 0;
+              color: #000;
+              font-size: 35px;
+              font-weight: bold;
+            }
+            
+            .close:hover,
+            .close:focus {
+              color: red;
+              cursor: pointer;
+            }
+            
+            /* Add Zoom Animation */
+            .animate {
+              -webkit-animation: animatezoom 0.6s;
+              animation: animatezoom 0.6s
+            }
+            
+            @-webkit-keyframes animatezoom {
+              from {-webkit-transform: scale(0)} 
+              to {-webkit-transform: scale(1)}
+            }
+              
+            @keyframes animatezoom {
+              from {transform: scale(0)} 
+              to {transform: scale(1)}
+            }
+            
+            /* Change styles for span and cancel button on extra small screens */
+            @media screen and (max-width: 300px) {
+              span.psw {
+                 display: block;
+                 float: none;
+              }
+              .cancelbtn {
+                 width: 100%;
+              }
+            }
+        </style>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    </head>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="container" style="width: 650px;">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="text-center">Election Results</h1>
-          <hr/>
-          <br/>
-          <div id="loader">
-            <p class="text-center">Loading...</p>
-          </div>
-          <div id="content" style="display: none;">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Votes</th>
-                </tr>
-              </thead>
-              <tbody id="candidatesResults">
-              </tbody>
-            </table>
-            <hr/>
-            <form onSubmit="App.castVote(); return false;">
-              <div class="form-group">
-                <label for="candidatesSelect">Select Candidate</label>
-                <select class="form-control" id="candidatesSelect">
-                </select>
-              </div>
-              <button type="submit" class="btn btn-primary">Vote</button>
-              <hr />
-            </form>
-            <p id="accountAddress" class="text-center"></p>
-          </div>
+    <body>
+
+        <div style="text-align: center;">
+            <img 
+                src="./images/suLogo.jpg" 
+                alt="Avatar" 
+                class="avatar"
+                style="margin-top: 5%;">
+
+            <h1>SUvote</h1>
+
+            <h3>
+                Welcome to the SUvote, please Login to vote!
+            </h3>
+
+        <!--Login Button-->
+            <button 
+                onclick="document.getElementById('id01').style.display='block'" 
+                style= "border-radius: 5%; height: 70px; width: 300px; font-weight: bold; font-size: 30px"
+                >
+                    Login
+            </button>
         </div>
-      </div>
-    </div>
+        
+        <p style="font-weight:lighter; color: grey; font-size: small; margin-top: 10%; text-align: center;">
+            Omer Kose, Ata Sarp Mildan, Emre Tasci Blockchain Based E-Voting system as ENS-492 term project. 2021
+        </p>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/web3.min.js"></script>
-    <script src="js/truffle-contract.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+        <div id="id01" class="modal">
+            <form class="modal-content animate" action="/action_page.php" method="post">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <img src="./images/suLogo.jpg" alt="Avatar" class="avatar">
+                </div>
+
+                <p style="text-align: center; margin-bottom: 0% ;">
+                    Please enter your SU credidentials to proceed.
+                </p>
+
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input 
+                        type="text" 
+                        id="userMail"
+                        onchange="this.value"
+                        placeholder="Enter Your SU User Mail" 
+                        name="uname" 
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                        required
+                    >
+
+                    <label for="psw"><b>Password</b></label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        onchange="this.value"
+                        placeholder="Enter Your Password" 
+                        name="psw" 
+                        required
+                    >
+                    
+                    <button 
+                        onClick="login()" 
+                        type="button" id="loginButton">
+                            Login
+                    </button>
+                    <button 
+                        onClick="window.location='vote.html'" 
+                        type="button" id="continueButton" 
+                        style="background: red;"
+                        disabled>
+                            Continue
+                    </button>
+                
+                </div>
+                
+            </form>
+        </div>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+
+            // User Credidentials to enter to the system
+            var userMails = ["omerkose@sabanciuniv.edu", "etasci@sabanciuniv.edu", "mata@sabanciuniv.edu"];
+            var userPassword = "12345678";
+
+    
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            
+            // Funciton to check if the user exists in the database
+            function checkUserMailAndPassword(email, password) {
+                if (-1 < userMails.indexOf(email)) {
+                    if (userPassword == password)
+                        return true;
+                }
+            }
+
+            // Change the continue button disability if user creditentials are true
+            function login() {
+                if(checkUserMailAndPassword(document.getElementById('userMail').value, 
+                    document.getElementById('password').value)) {
+                        // Make continue button available
+                        document.getElementById("continueButton").disabled = false;
+                        document.getElementById("continueButton").style.background='blue';
+                        alert("You can proceed with continue...");
+                } else {
+                    alert("You have entered invalid credidentials or you are not registered to the system!");
+                }
+            }
+
+        </script>
+
+    </body>
 </html>
