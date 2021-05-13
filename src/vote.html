@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Election Results</title>
 
@@ -31,24 +32,47 @@
         margin: 4px 2px;
         cursor: pointer;
         margin: 0;
-        margin-left: 45%;
+        position:absolute;
+        top: 70%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        margin-left: 43%;
+        animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
       }
       </style>
-
   </head>
-  
-
 
   <body style="align-items: center;">
     <div id = "id102" class="container" style="width: 650px;">
       <div class="row">
         <div class="col-lg-12">
-          <h1>Election Results</h1>
+
+          <!--Header-->
+          <h1 style="text-align: center;">SU Vote 2021</h1>
           <hr/>
           <br/>
+
+          <!--Informaiton Text-->
           <div id="loader">
-            <p class="text-center">Loading...</p>
+            <div class="loader"></div>
+            <p class="text-center">Voting system is loading...</p>
+            <p class="text-center">If not loaded please check your MetaMask account...</p>
           </div>
+
+          <!--Voting Form Display-->
           <div id="content" style="display: none;">
             <table class="table">
               <thead>
@@ -62,17 +86,27 @@
               </tbody>
             </table>
             <hr/>
-            <form onSubmit="App.castVote(); return false;">
+            <form onsubmit="App.castVote(); return false;">
               <div class="form-group">
                 <label for="candidatesSelect">Select Candidate</label>
                 <select class="form-control" id="candidatesSelect">
                 </select>
               </div>
-              <button type="submit" class="btn btn-primary">Vote</button>
+              <button type="submit" onclick="isVoted()" class="btn btn-primary">Vote</button>
               <hr />
             </form>
+
+            <!--Wallet Address Display-->
             <p id="accountAddress" class="text-center"></p>
+            <p style="text-align: center; font-weight: 10; color: grey; font-size: small;">This your current wallet address, please check before voting if it is yours.</p>
           </div>
+          
+          <!--After Voting Process Text-->
+          <p 
+            id="afterVotingText" 
+            style="visibility: hidden; text-align: center; font-size: larger; font-weight: bolder;">
+              Please verify your voting transaction from MetaMask, thanks for your participation!
+          </p>
         </div>
       </div>
     </div>
@@ -90,5 +124,15 @@
     <script src="js/web3.min.js"></script>
     <script src="js/truffle-contract.js"></script>
     <script src="js/app.js"></script>
+
+    <!--Funciton Declerations-->
+    <script>
+      // Funciton to congrats after the voting process.
+      function isVoted() {
+        document.getElementById("afterVotingText").style.visibility = "visible";
+        console.log("Voted");
+      }
+        
+    </script>
   </body>
 </html>

@@ -18,8 +18,10 @@ contract Election {
     );
 
     constructor () public {
-        addCandidate("Donald Trump");
-        addCandidate("Joe Biden");
+        addCandidate("Ömer Köse");
+        addCandidate("Ata Sarp Mildan");
+        addCandidate("Yunus Emre Taşçı");
+        addCandidate("Erdinç Öztürk");
     }
 
     function addCandidate (string memory _name) private {
