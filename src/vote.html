@@ -33,7 +33,7 @@
         cursor: pointer;
         margin: 0;
         position:absolute;
-        top: 70%;
+        margin-top: 5%;
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
@@ -71,6 +71,8 @@
             <p class="text-center">Voting system is loading...</p>
             <p class="text-center">If not loaded please check your MetaMask account...</p>
           </div>
+          
+          <h3 style="text-align: center; margin-bottom: 50px;">You are currently voting for 2021 PROJ492 election!</h3>
 
           <!--Voting Form Display-->
           <div id="content" style="display: none;">
@@ -111,11 +113,22 @@
       </div>
     </div>
     
+    <!--Exit Button-->
     <button 
       class="button"
       onclick="window.location='index.html'">
       Exit
     </button>
+
+    <p style="font-weight:light; color: grey; font-size: medium; text-align: center;">
+      We are not storing any of your personal data that can be realated to you. You can securely vote in our system!
+    </p>
+
+
+    <p style="font-weight:lighter; color: grey; font-size: small; margin-top: 8%; text-align: center;">
+      Omer Kose, Ata Sarp Mildan, Emre Tasci Blockchain Based E-Voting system as ENS-492 term project. 2021
+    </p>
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
