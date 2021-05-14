@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <title>Login Page</title>
         <style>
             body {font-family: Arial, Helvetica, sans-serif;}
-            
+
             /* Full-width input fields */
             input[type=text], input[type=password] {
               width: 100%;
@@ -15,7 +15,7 @@
               border: 1px solid #ccc;
               box-sizing: border-box;
             }
-            
+
             /* Set a style for all buttons */
             button {
               background-color: #04AA6D;
@@ -26,39 +26,39 @@
               cursor: pointer;
               width: 100%;
             }
-            
+
             button:hover {
               opacity: 0.8;
             }
-            
+
             /* Extra styles for the cancel button */
             .cancelbtn {
               width: auto;
               padding: 10px 18px;
               background-color: #f44336;
             }
-            
+
             /* Center the image and position the close button */
             .imgcontainer {
               text-align: center;
               margin: 24px 0 12px 0;
               position: relative;
             }
-            
+
             img.avatar {
               width: 40%;
-              border-radius: 5%;
+              border-radius: 5px;
             }
-            
+
             .container {
               padding: 16px;
             }
-            
+
             span.psw {
               float: right;
               padding-top: 16px;
             }
-            
+
             /* The Modal (background) */
             .modal {
               display: none; /* Hidden by default */
@@ -73,15 +73,16 @@
               background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
               padding-top: 60px;
             }
-            
+
             /* Modal Content/Box */
             .modal-content {
+              border-radius: 5px;
               background-color: #fefefe;
-              margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+              margin: 1% auto 1% auto; /* 5% from the top, 15% from the bottom and centered */
               border: 1px solid #888;
               width: 80%; /* Could be more or less, depending on screen size */
             }
-            
+
             /* The Close Button (x) */
             .close {
               position: absolute;
@@ -91,29 +92,29 @@
               font-size: 35px;
               font-weight: bold;
             }
-            
+
             .close:hover,
             .close:focus {
               color: red;
               cursor: pointer;
             }
-            
+
             /* Add Zoom Animation */
             .animate {
               -webkit-animation: animatezoom 0.6s;
               animation: animatezoom 0.6s
             }
-            
+
             @-webkit-keyframes animatezoom {
-              from {-webkit-transform: scale(0)} 
+              from {-webkit-transform: scale(0)}
               to {-webkit-transform: scale(1)}
             }
-              
+
             @keyframes animatezoom {
-              from {transform: scale(0)} 
+              from {transform: scale(0)}
               to {transform: scale(1)}
             }
-            
+
             /* Change styles for span and cancel button on extra small screens */
             @media screen and (max-width: 300px) {
               span.psw {
@@ -131,29 +132,29 @@
     <body>
 
         <div style="text-align: center;">
-            <img 
-                src="./images/suLogo.jpg" 
-                alt="Avatar" 
+            <img
+                src="./images/suLogo.jpg"
+                alt="Avatar"
                 class="avatar"
                 style="margin-top: 5%;">
 
-            <h1>SUvote</h1>
+            <h1>SU Vote 2021</h1>
 
             <h3>
-                Welcome to the SUvote, please Login to vote!
+                Welcome to the SU Vote 2021, please Login below to vote!
             </h3>
 
         <!--Login Button-->
-            <button 
-                onclick="document.getElementById('id01').style.display='block'" 
-                style= "border-radius: 5%; height: 70px; width: 300px; font-weight: bold; font-size: 30px"
+            <button
+                onclick="document.getElementById('id01').style.display='block'"
+                style= "border-radius: 5px; height: 70px; width: 300px; font-weight: bold; font-size: 30px"
                 >
                     Login
             </button>
         </div>
-        
-        <p style="font-weight:lighter; color: grey; font-size: small; margin-top: 10%; text-align: center;">
-            Omer Kose, Ata Sarp Mildan, Emre Tasci Blockchain Based E-Voting system as ENS-492 term project. 2021
+
+        <p style="font-weight:lighter; color: grey; font-size: small; margin-top: 8%; text-align: center;">
+            Ömer Köse, Ata Sarp Mildan, Yunus Emre Taşçı | Blockchain Based E-Voting System | ENS 492 Term Project | 2021
         </p>
 
         <div id="id01" class="modal">
@@ -169,41 +170,44 @@
 
                 <div class="container">
                     <label for="uname"><b>Username</b></label>
-                    <input 
-                        type="text" 
+                    <input
+                        style="border-radius: 5px"
+                        type="text"
                         id="userMail"
                         onchange="this.value"
-                        placeholder="Enter Your SU User Mail" 
-                        name="uname" 
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                        placeholder="Enter Your SU User Mail"
+                        name="uname"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         required
                     >
 
                     <label for="psw"><b>Password</b></label>
-                    <input 
-                        type="password" 
-                        id="password" 
+                    <input
+                        style="border-radius: 5px"
+                        type="password"
+                        id="password"
                         onchange="this.value"
-                        placeholder="Enter Your Password" 
-                        name="psw" 
+                        placeholder="Enter Your Password"
+                        name="psw"
                         required
                     >
-                    
-                    <button 
-                        onClick="login()" 
-                        type="button" id="loginButton">
+
+                    <button
+                        onClick="login()"
+                        type="button" id="loginButton"
+                        style="border-radius: 5px">
                             Login
                     </button>
-                    <button 
-                        onClick="window.location='vote.html'" 
-                        type="button" id="continueButton" 
-                        style="background: red;"
+                    <button
+                        onClick="window.location='vote.html'"
+                        type="button" id="continueButton"
+                        style="background: red; border-radius: 5px"
                         disabled>
                             Continue
                     </button>
-                
+
                 </div>
-                
+
             </form>
         </div>
 
@@ -215,14 +219,14 @@
             var userMails = ["omerkose@sabanciuniv.edu", "etasci@sabanciuniv.edu", "mata@sabanciuniv.edu", "erdinco@sabanciuniv.edu"];
             var userPassword = "12345678";
 
-    
+
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                 }
             }
-            
+
             // Funciton to check if the user exists in the database
             function checkUserMailAndPassword(email, password) {
                 if (-1 < userMails.indexOf(email)) {
@@ -233,12 +237,12 @@
 
             // Change the continue button disability if user creditentials are true
             function login() {
-                if(checkUserMailAndPassword(document.getElementById('userMail').value, 
+                if(checkUserMailAndPassword(document.getElementById('userMail').value,
                     document.getElementById('password').value)) {
                         // Make continue button available
                         document.getElementById("continueButton").disabled = false;
                         document.getElementById("continueButton").style.background='blue';
-                        alert("You can proceed with continue...");
+                        alert("You can continue by clicking the continue button.");
                 } else {
                     alert("You have entered invalid credidentials or you are not registered to the system!");
                 }
