@@ -3,31 +3,41 @@ var Election = artifacts.require("./Election.sol");
 contract("Election", function(accounts) {
     var electionInstance;
 
-    it("initializes with two candidates", function() {
+    it("Initializes with election with four candidates.", function() {
         return Election.deployed().then(function(instance) {
             return instance.candidatesCount();
         }).then(function(count) {
-            assert.equal(count, 2);
+            assert.equal(count, 4);
         });
     });
 
-    it("initializes the candidates with the correct values", function() {
+    it("Initializes the candidates with the correct values.", function() {
         return Election.deployed().then(function(instance) {
             electionInstance = instance;
             return electionInstance.candidates(1);
         }).then(function(candidate) {
             assert.equal(candidate[0], 1, "contains the correct id");
-            assert.equal(candidate[1], "Donald Trump", "contains the correct name");
+            assert.equal(candidate[1], "Ömer Köse", "contains the correct name");
             assert.equal(candidate[2], 0, "contains the correct votes count");
             return electionInstance.candidates(2);
         }).then(function(candidate) {
             assert.equal(candidate[0], 2, "contains the correct id");
-            assert.equal(candidate[1], "Joe Biden", "contains the correct name");
+            assert.equal(candidate[1], "Ata Sarp Mildan", "contains the correct name");
             assert.equal(candidate[2], 0, "contains the correct votes count");
-        });
+			return electionInstance.candidates(3);
+        }).then(function(candidate) {
+			assert.equal(candidate[0], 3, "contains the correct id");
+			assert.equal(candidate[1], "Yunus Emre Taşçı", "contains the correct name");
+			assert.equal(candidate[2], 0, "contains the correct votes count");
+			return electionInstance.candidates(4);
+		}).then(function(candidate) {
+			assert.equal(candidate[0], 4, "contains the correct id");
+			assert.equal(candidate[1], "Erdinç Öztürk", "contains the correct name");
+			assert.equal(candidate[2], 0, "contains the correct votes count");
+		});
     });
 
-    it("allows a voter to cast a vote", function() {
+    it("Allows a voter to cast a vote.", function() {
         return Election.deployed().then(function(instance) {
             electionInstance = instance;
             candidateId = 1;
@@ -46,7 +56,7 @@ contract("Election", function(accounts) {
         });
     });
 
-    it("throws an exception for invalid candidates", function() {
+    it("Throws an exception for invalid candidates.", function() {
         return Election.deployed().then(function(instance) {
             electionInstance = instance;
             return electionInstance.vote(99, { from: accounts[1] })
@@ -63,7 +73,7 @@ contract("Election", function(accounts) {
         });
     });
 
-    it("throws an exception for double voting", function() {
+    it("Throws an exception for double voting.", function() {
         return Election.deployed().then(function(instance) {
             electionInstance = instance;
             candidateId = 2;
