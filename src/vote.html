@@ -81,9 +81,9 @@
               </tbody>
             </table>
             <hr/>
-            <form 
-              id="selectionPart" 
-              onsubmit="App.castVote(); 
+            <form
+              id="selectionPart"
+              onsubmit="App.castVote();
               return false;"
             >
               <div class="form-group">
@@ -99,11 +99,11 @@
                 class="btn btn-primary">
                 Check Integrity
               </button>
-              <button 
-                id="voteButton" 
-                style="visibility: hidden;" 
-                type="submit" 
-                onclick="isVoted()" 
+              <button
+                id="voteButton"
+                style="visibility: hidden;"
+                type="submit"
+                onclick="isVoted()"
                 class="btn btn-primary">
                   Vote
               </button>
@@ -126,7 +126,7 @@
           <p
             id="afterVotingTextWarning"
             style="visibility: hidden; text-align: center; font-size: larger; font-weight: bolder;">
-              You have used vote for this account, if you want to use vote with another please login to system agian.
+              You have already voted with this account, if you want to vote with another account please login to the system again.
           </p>
         </div>
       </div>
@@ -160,12 +160,12 @@
       // Function to check if the user has used vote before
       function check() {
         if(sessionStorage.getItem("session") == 0) {
-          alert("You can proceed by voting button.")
+          alert("You can continue by clicking the vote button.")
           document.getElementById("voteButton").style.visibility = "visible";
           document.getElementById("checkButton").style.visibility = "hidden";
           sessionStorage.setItem("session", 1)
         } else {
-          alert("You have already used a vote!!")
+          alert("You have already voted once!")
         }
       };
 
