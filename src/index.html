@@ -212,6 +212,8 @@
         </div>
 
         <script>
+            //Session variable for checking the user
+            var session = 0;
             // Get the modal
             var modal = document.getElementById('id01');
 
@@ -235,20 +237,21 @@
                 }
             }
 
-            // Change the continue button disability if user creditentials are true
+            // Change the continue button disability if user creditentials are true also look for the session
             function login() {
                 if(checkUserMailAndPassword(document.getElementById('userMail').value,
                     document.getElementById('password').value)) {
-                        // Make continue button available
-                        document.getElementById("continueButton").disabled = false;
-                        document.getElementById("continueButton").style.background='blue';
-                        alert("You can continue by clicking the continue button.");
+                      // Check parameters for the user
+                      sessionStorage.setItem("session", session);
+                      console.log(session);
+                      // Make continue button available
+                      document.getElementById("continueButton").disabled = false;
+                      document.getElementById("continueButton").style.background='blue';
+                      alert("You can continue by clicking the continue button.");
                 } else {
                     alert("You have entered invalid credidentials or you are not registered to the system!");
                 }
             }
-
         </script>
-
     </body>
 </html>
