@@ -163,7 +163,6 @@
           alert("You can continue by clicking the vote button.")
           document.getElementById("voteButton").style.visibility = "visible";
           document.getElementById("checkButton").style.visibility = "hidden";
-          sessionStorage.setItem("session", 1)
         } else {
           alert("You have already voted once!")
         }
@@ -171,6 +170,7 @@
 
       // Funciton to congrats after the voting process.
       function isVoted() {
+		sessionStorage.setItem("session", 1)
         document.getElementById("afterVotingText").style.visibility = "visible";
         document.getElementById("afterVotingTextWarning").style.visibility = "visible";
       };
