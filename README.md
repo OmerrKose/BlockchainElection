@@ -1,1 +1,3 @@
 # Election
+This is an blockchain based e-voting application as term project. In the app registered users can vote for the deployed voting processes. Voting process is done by using MetaMask and Ganache. Voting is done simultaneously and results can be seen instantly after transaction confirmation. Also once any user has voted for any participant they are disabled for the current voting process and won't be able to vote again. If the contract is redeployed than it is possible for users to vote again for the voting process. 
+  Since it is a basic term project users are limited with project contributors and project supervisor thus they are the only available voters and cnadidates to vote for.
